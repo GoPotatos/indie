@@ -1,4 +1,6 @@
-function loadGamePage() {
+function loadGamePage(e) {
+    const data=gameTemplateData.games.find(item=>item.name===e.target.innerText)
+    localStorage["game-name"]=JSON.stringify(data);
     window.location.href = "game-page-template.html";
 
 }

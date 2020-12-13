@@ -8,6 +8,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Roboto+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/indie_reveal.css">
+    
+    <script id="gameTemplate" type="text/x-handlerbars-template">
+        <div class="body-custom">
+            <div class ="main_inner_wrapper">
+                <div class="page-title">
+                    <h1>Indie Reveal</h1>
+                </div>
+                <div class="sub-title">
+                    <p>Welcome to Indie Reveal! The only place on the web that is unbiased and purely focused on letting
+                    creators showcase their games to gamers world wide. Are you a creator? Go to the submit page and
+                        fill out the form to get your game on Indie Reveal!</p>
+                </div>
+                <div class="section-title">
+                    <h3>Highlights</h3>
+                </div>
+                <div class="slider-title">
+                    <h2>Featured</h2>
+                </div>
+                <div id="carousel-1-Indicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    
+                    <div class="carousel-inner">
+                        {{#each games}}
+                        <div class="carousel-item {{#if @first}}active{{/if}}" id="featured-{{@index}}">
+                            <div class="carousel-title-link">
+                                <h1 class="carousel-title" id="0" onclick="loadGamePage(event)">{{name}}</h1>
+                            </div>
+                            <div class="screen-shots">
+                                <img src="https://lh3.googleusercontent.com/zmAaJWHcNXGz5tWnclhBY4SUftXVFzUItDowLdB3WFGOr-P2mqy0cZ5AgtTdi5jh6Utx7rHZy3R5aITH6Sb60vN81JzBJHi4eg-AS3xnO6k2O7OeP6O5UN5sjyDDxI_5v8CedsXw=w600-h315-p-k"  alt="150x150 screenshot">
+                                <img src="https://lh3.googleusercontent.com/rd9_C3arIQodYt9pH8uL84aPgoD80X2P_XGZYVYZCReJTMY2loFf564iX6GdF6y4d6Sh3Zb6d0y7FBjz8DL_JrxHWq7wZ8O2xNPtaG41DkwNN40JWHA0dn4Vakyeht67r2dDiI00=w600-h315-p-k" />
+                                <img src="https://lh3.googleusercontent.com/9k9Z4nIu20zLZ-d18zn3YlK6Sk0Gd2jdm_u_jPujsI7Hq4v_nH8de-mNSRS0mrYVUD1dqf0BpTulkbbo1vPMGW24dQTN8GBX5LkFL0x4Flzk3hC2coL2Pk6ueZC-ZoJ7lonDFabA=w600-h315-p-k"  alt="150x150 screenshot">
+                            </div>
+                            <div class="carousel-quick-title">
+                                <h2>Quick Facts</h2>
+                            </div>
+                            <div class="carousel-quick-fact">
+                                <ul>
+                                    {{#with quickfacts}}
+                                    <li>Creator: {{4}}</li>
+                                    <li>Platforms: {{1}}</li>
+                                    <li>Release Date: {{3}}</li>
+                                    {{/with}}
+                                </ul>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <a class="carousel-control-prev" href="#carousel-1-Indicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-1-Indicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </script>
+    
 </head>
 <body class="index_body">
 <div class="container-custom">
@@ -52,7 +116,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" id="featured-1">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="0" onclick="loadGamePage()">Hades</h1>
+                            <h1 class="carousel-title" id="0" onclick="loadGamePage(event)">Hades</h1>
                         </div>
                         <div class="screen-shots">
                             <img src="https://lh3.googleusercontent.com/zmAaJWHcNXGz5tWnclhBY4SUftXVFzUItDowLdB3WFGOr-P2mqy0cZ5AgtTdi5jh6Utx7rHZy3R5aITH6Sb60vN81JzBJHi4eg-AS3xnO6k2O7OeP6O5UN5sjyDDxI_5v8CedsXw=w600-h315-p-k"  alt="150x150 screenshot">
@@ -72,7 +136,7 @@
                     </div>
                     <div class="carousel-item" id="featured-2">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="1" onclick="loadGamePage()">Disco Elysium</h1>
+                            <h1 class="carousel-title" id="1" onclick="loadGamePage(event)">Disco Elysium</h1>
                         </div>
                         <div class="screen-shots">
                            <img src="https://lh3.googleusercontent.com/T2ELvatlfkTqVAiNAO4m_enOvBZ7I1XTNVhDAy1sVZzoE66Q1ny8F-r3r1ZwsawEyfLQUoLpndIgH9Y7nMtEz1DszprJOTSSLYJAqmuLOMMCfvfvBKvUm7gJnfoAa_TQNuxUZLsgEQ=w600-h315-p-k"  alt="150x150 screenshot">
@@ -92,7 +156,7 @@
                     </div>
                     <div class="carousel-item" id="featured-3">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="2" onclick="loadGamePage()">Frostpunk</h1>
+                            <h1 class="carousel-title" id="2" onclick="loadGamePage(event)">Frostpunk</h1>
 
                         </div>
                         <div class="screen-shots">
@@ -135,7 +199,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" id="newest-1">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="4" onclick="loadGamePage()">Hollow Knight</h1>
+                            <h1 class="carousel-title" id="4" onclick="loadGamePage(event)">Hollow Knight</h1>
                         </div>
                         <div class="screen-shots">
                             <img src="https://lh3.googleusercontent.com/1ih_nU5iT75fcGg7GrMsdygbAO1tTxgFulyYCVKbfb9e_XI7_PkqeGsn8Tn78i19H80xSQTc9GxW_-T2XCo8NUxDA88294UvqX6BF7xVbExWR5mEbXWuLttaSDV8IJlyvdQP7gRaKA=w600-h315-p-k"  alt="150x150 screenshot">
@@ -155,7 +219,7 @@
                     </div>
                     <div class="carousel-item" id="newest-2">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="5" onclick="loadGamePage()">Into the Breach</h1>
+                            <h1 class="carousel-title" id="5" onclick="loadGamePage(event)">Into the Breach</h1>
 
                         </div>
                         <div class="screen-shots">
@@ -176,7 +240,7 @@
                     </div>
                     <div class="carousel-item" id="newest-3">
                         <div class="carousel-title-link">
-                            <h1 class="carousel-title" id="3" onclick="loadGamePage()">Darkest Dungeon</h1>
+                            <h1 class="carousel-title" id="3" onclick="loadGamePage(event)">Darkest Dungeon</h1>
                         </div>
                         <div class="screen-shots">
                             <img src="https://lh3.googleusercontent.com/AUFxLmW5RSFGEyn_4PLLigT89Uihweiu0xw6HYM302M_nOqKGTv5S-rOE_AB0VQElMKGymhKK67uW7W-LqXqkq_GTs3cP6jv2XIzgOKNrOjc4KIlfgQJas4fZLR2IoUykXgdAAA6pw=w600-h315-p-k" alt="150x150 screenshot">
@@ -215,10 +279,13 @@
         </footer>
     </div>
     </div>
+    <div id="game-container"></div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/handlebars-v4.7.6.js"></script>
+<script src="js/main-template.js"></script>
 <script src="js/main.indie-reveal.js"></script>
+
 </body>
 </html>
